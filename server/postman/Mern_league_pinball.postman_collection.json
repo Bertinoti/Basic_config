@@ -1,0 +1,196 @@
+{
+	"info": {
+		"_postman_id": "6db50a95-9323-466b-b602-8113aa3b9f24",
+		"name": "Mern_league_pinball",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Firebase",
+			"item": [
+				{
+					"name": "Create User Firebase",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"perez@gmail.com\",\r\n    \"password\":\"123456\",\r\n    \"returnSecureToken\":true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host_firebase_v1}}/accounts:signUp?key={{api_key}}",
+							"host": [
+								"{{host_firebase_v1}}"
+							],
+							"path": [
+								"accounts:signUp"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{api_key}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Firebase",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"sergio@gmail.com\",\r\n    \"password\":\"123456\",\r\n    \"returnSecureToken\":true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host_firebase_v1}}/accounts:signInWithPassword?key={{api_key}}",
+							"host": [
+								"{{host_firebase_v1}}"
+							],
+							"path": [
+								"accounts:signInWithPassword"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{api_key}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Create User ApiBack",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjQ2NDExN2FjMzk2YmM3MWM4YzU5ZmI1MTlmMDEzZTJiNWJiNmM2ZTEiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vbG9naW5hdXRoLWRldmVsb3BtZW50IiwiYXVkIjoibG9naW5hdXRoLWRldmVsb3BtZW50IiwiYXV0aF90aW1lIjoxNjQ4NDk0NjM5LCJ1c2VyX2lkIjoienBoUlpueVJQeFNoZXBjbVdtNUNhbnl6VEpHMiIsInN1YiI6InpwaFJabnlSUHhTaGVwY21XbTVDYW55elRKRzIiLCJpYXQiOjE2NDg0OTQ2MzksImV4cCI6MTY0ODQ5ODIzOSwiZW1haWwiOiJzZXJnaW9AZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7ImVtYWlsIjpbInNlcmdpb0BnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.Z2RQJR_jXkzU5qkJfpXkApXnSrpM4hUc60fGO4aWGG5kxvCZtKpz6GPv82BolGC-wzUG8S2hOe1yKIRTo57oa6y1nes-YHZn_np4Df7BhlaqQrc1RpcMnBKb-Fr9oosKjEUuNPC-Y_vl1iCvRe7ziOpFvbiBPtAG1I50EC8lVJ6HaZVeCZBlL8H8FlJ8wCAUmahWlfYzlhAsdNyy_7n__Q4ha468WQlEUdB8UnEFvxnG56eMNbyUHr67Z-btvrkk8uiFcifOJtNsLbJUQuRN8EmERqeYmbYw80x9AxNDoRzhhwqX8PwcheRwDeuolNTJ0ATFlOLLJPXu8o44bLbv4g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"sergiobr\",\r\n    \"email\": \"sergio@gmail.com\",\r\n    \"uid\": \"zphRZnyRPxShepcmWm5CanyzTJG2\",\r\n    \"phone\": 123456789\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host_api}}/users/signup",
+					"host": [
+						"{{host_api}}"
+					],
+					"path": [
+						"users",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Team",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImIwNmExMTkxNThlOGIyODIxNzE0MThhNjdkZWE4Mzc0MGI1ZWU3N2UiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vbG9naW5hdXRoLWRldmVsb3BtZW50IiwiYXVkIjoibG9naW5hdXRoLWRldmVsb3BtZW50IiwiYXV0aF90aW1lIjoxNjQ4NDk1MDAyLCJ1c2VyX2lkIjoienBoUlpueVJQeFNoZXBjbVdtNUNhbnl6VEpHMiIsInN1YiI6InpwaFJabnlSUHhTaGVwY21XbTVDYW55elRKRzIiLCJpYXQiOjE2NDg0OTUwMDIsImV4cCI6MTY0ODQ5ODYwMiwiZW1haWwiOiJzZXJnaW9AZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7ImVtYWlsIjpbInNlcmdpb0BnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.Ijjzl0JP_OSZ2UNVWUCFLNFkTHDiboCsAx6DVJHHDNxR2BojuAcX4JzNDVNdeYSy7XL9vMwo5KpL4g5Va95ZrkD1RkuVKZK_1w_h09UMdUNjhP5T1MvL4K58kZ5rIruigvtYtX0cFGC0kkVoruKxzq9X9ay-R4aIBJyOKbHHSmSqL2r-TJ5o2w_g3D8mxeJysmZ9DFiygRUhQ9qMEKg77jhGrk_2HlWprHp6BvgUA0gxBNqqnuw3o9sMbK8V9l9AYU8px5FqmGFJ1qLlqxzGr73owN5lWc17tz-nWP4ywRZiUFqsK_nSp5IaLP_97AQop5QtfUI6hO_2taReJPBkWg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"teamName\": \"Barca\",\r\n    \"captain\": \"zphRZnyRPxShepcmWm5CanyzTJG2\",\r\n    \"logo\": \"m\",\r\n    \"city\": \"Barca\",\r\n    \"country\": \"Spain\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host_api}}/teams/",
+					"host": [
+						"{{host_api}}"
+					],
+					"path": [
+						"teams",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host_firebase_v1",
+			"value": "https://identitytoolkit.googleapis.com/v1",
+			"type": "string"
+		},
+		{
+			"key": "host_api",
+			"value": "http://localhost:4000/api",
+			"type": "string"
+		},
+		{
+			"key": "api_key",
+			"value": "AIzaSyAYxJYQoUFv-zN3mtoTJWfRwxgrKOq_akM",
+			"type": "string"
+		}
+	]
+}
